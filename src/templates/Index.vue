@@ -7,19 +7,26 @@
       </p>
 
       <div
-        v-for="project in $page.resources.edges"
-        :key="project.id"
+        v-for="topic in $page.topics.edges"
+        :key="topic.id"
         class="post border-gray-400 border-b pb-6 mb-6"
       >
         <h2 class="text-xl md:text-2xl font-bold mb-0">
-          <a :href="project.node.url" target="_blank">{{
-            project.node.name
-          }}</a>
+          {{ topic.node.Name }}
         </h2>
-        <div v-html="project.node.notes" class="markdown-body mb-2 pb-4" />
-        <!-- {{ project.node.created }} -->
-        <div v-for="tag in project.node.tags" :key="tag.id">
-          {{ tag }}
+        <div class="">
+          <div
+            v-for="resource in topic.node.belongsTo.edges"
+            :key="resource.id"
+            class="my-2"
+          >
+            <h3 class="text-lg">
+              <a :href="resource.node.URL" target="_blank">
+                {{ resource.node.Name }}
+              </a>
+            </h3>
+            <div v-html="resource.node.Notes" class="markdown-body mb-2 pb-4" />
+          </div>
         </div>
       </div>
     </div>
@@ -28,23 +35,32 @@
 
 <page-query>
 query Resources {
-  resources: allCovidResource(
-    sortBy: "Created"
-    order: ASC
-  ) {
+  topics: allTopic {
     edges {
       node {
-        created
-        name
-        url
-        notes
-        authorOrPublisher
-        tags
-        expiration
+        Name
+        id
+        belongsTo {
+          edges {
+            node {
+              ... on CovidResource {
+                Created
+                Name
+                URL
+                Notes
+                Author_or_Publisher
+                Topics
+                Expiration
+                id
+              }
+            }
+          }
+        }
       }
     }
   }
 }
+
 </page-query>
 <style lang="postcss" scoped>
 .post-link {

@@ -12,20 +12,6 @@ module.exports = {
   siteName: "DMG Community Resources",
   siteDescription: "DMG community resources",
   siteUrl: "https://resources.dmg.to",
-
-  plugins: [
-    {
-      use: "@gridsome/source-airtable",
-      options: {
-        apiKey: process.env.airtable_api_key,
-        baseId: process.env.airtable_base_id,
-        tableName: "COVID-19",
-        typeName: "CovidResource",
-        select: {},
-      },
-    },
-  ],
-
   transformers: {
     remark: {
       externalLinksTarget: "_blank",

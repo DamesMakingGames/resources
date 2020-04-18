@@ -7,6 +7,8 @@ const luxon = require("luxon");
 var DateTime = luxon.DateTime;
 let d = DateTime.local();
 let today = d.toISODate();
+const axios = require("axios");
+
 module.exports = function(api, options) {
   api.createPages(({ createPage }) => {
     createPage({
@@ -17,7 +19,41 @@ module.exports = function(api, options) {
       },
     });
   });
-  api.loadSource((store) => {
+  api.loadSource(async (store) => {
+    const resourceCollection = store.addCollection("CovidResource");
+    const topicCollection = store.addCollection("Topic");
+    resourceCollection.addReference("topicList", "Topic");
+
+    const covid19Data = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/COVID-19?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        let topic = item.fields.Topics;
+        let topicList = topic.map(function(topic) {
+          return topic;
+        });
+        resourceCollection.addNode({
+          ...item.fields,
+          topicList: topicList,
+        });
+      }
+    });
+    const topicData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/Topics?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        topicCollection.addNode({
+          ...item.fields,
+        });
+      }
+    });
+
     const cleanedPathPrefix = `${
       pathPrefix
         ? ["", ...pathPrefix.split("/").filter((dir) => dir.length)].join("/")
@@ -29,7 +65,16 @@ module.exports = function(api, options) {
 
   api.beforeBuild(({ config, store }) => {
     const { collection } = store.getCollection("CovidResource");
-
+    for (const item of collection.data) {
+      console.log(item.Topics);
+      let topic = item.Topics;
+      let topicList = topic.map(function(topic) {
+        return topic.id;
+      });
+      CovidResource.addNode({
+        topic: topicList,
+      });
+    }
     const resourcesc19 = collection.data.map((resource) => {
       return pick(resource, ["Name", "URL", "Notes"]);
     });
