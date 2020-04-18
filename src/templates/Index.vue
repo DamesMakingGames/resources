@@ -25,6 +25,9 @@
                 {{ resource.node.Name }}
               </a>
             </h3>
+            <h4 class="text-uppercase text-sm">
+              {{ resource.node.Author_or_Publisher }}
+            </h4>
             <div v-html="resource.node.Notes" class="markdown-body mb-2 pb-4" />
           </div>
         </div>

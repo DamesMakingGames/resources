@@ -65,21 +65,11 @@ module.exports = function(api, options) {
 
   api.beforeBuild(({ config, store }) => {
     const { collection } = store.getCollection("CovidResource");
-    for (const item of collection.data) {
-      console.log(item.Topics);
-      let topic = item.Topics;
-      let topicList = topic.map(function(topic) {
-        return topic.id;
-      });
-      CovidResource.addNode({
-        topic: topicList,
-      });
-    }
+
     const resourcesc19 = collection.data.map((resource) => {
       return pick(resource, ["Name", "URL", "Notes"]);
     });
 
-    console.log(resourcesc19);
     const output = {
       dir: "./static",
       name: "search.json",
