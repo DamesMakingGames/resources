@@ -21,7 +21,13 @@
             class="my-2"
           >
             <h3 class="text-lg">
-              <a :href="resource.node.URL" target="_blank">
+              <a
+                :href="resource.node.URL"
+                :click="
+                  `captureOutboundLink('${resource.node.URL}') return false ;`
+                "
+                target="_blank"
+              >
                 {{ resource.node.Name }}
               </a>
             </h3>
