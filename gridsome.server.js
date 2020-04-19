@@ -33,11 +33,19 @@ module.exports = function(api, options) {
         today: today,
       },
     });
+    createPage({
+      path: "/readings",
+      component: "./src/templates/Readings.vue",
+      context: {
+        today: today,
+      },
+    });
   });
   api.loadSource(async (store) => {
     const resourceCollection = store.addCollection("CovidResource");
     const topicCollection = store.addCollection("Topic");
     const gigsCollection = store.addCollection("Gig");
+    const readingsCollection = store.addCollection("Reading");
     resourceCollection.addReference("topicList", "Topic");
 
     const covid19Data = await axios({
@@ -78,6 +86,18 @@ module.exports = function(api, options) {
     }).then((result) => {
       for (const item of result.data.records) {
         gigsCollection.addNode({
+          ...item.fields,
+        });
+      }
+    });
+    const readingsData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/Readings?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        readingsCollection.addNode({
           ...item.fields,
         });
       }
