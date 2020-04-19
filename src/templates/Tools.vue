@@ -14,23 +14,6 @@
 </template>
 
 <page-query>
-query {
-  gigs: allGig {
-    edges {
-      node {
-        Title
-        URL
-        Posting_Date (format: "MMMM D, YYYY")
-        Company
-        Location
-        Remuneration
-        Summary
-      }
-    }
-  }
-}
-
-
 </page-query>
 <style lang="postcss" scoped>
 .post-link {

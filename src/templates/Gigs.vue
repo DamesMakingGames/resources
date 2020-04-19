@@ -12,7 +12,7 @@
           :key="gig.id"
           class="my-2 py-2 border-b"
         >
-          <h2 class="text-xl">
+          <h2 class="text-2xl">
             <a
               :href="gig.node.URL"
               :click="`captureOutboundLink('${gig.node.URL}') return false ;`"
@@ -24,12 +24,26 @@
               {{ gig.node.Company }}
             </small>
           </h2>
-          <h3
-            class="uppercase text-sm leading-loose tracking-wide text-gray-600"
-          >
-            Posted
+          <p class=" mb-0">
+            <span class="uppercase text-sm tracking-wide text-gray-600">
+              Posted</span
+            >
             {{ gig.node.Posting_Date }}
-          </h3>
+          </p>
+          <p class=" mb-0">
+            <span class="uppercase text-sm tracking-wide text-gray-600">
+              Compensation
+            </span>
+            {{ gig.node.Compensation }}
+          </p>
+
+          <p v-if="gig.node.Location">
+            <span class="uppercase text-sm tracking-wide text-gray-600">
+              Location
+            </span>
+            {{ gig.node.Location }}
+          </p>
+
           <div v-html="gig.node.Summary" class="markdown-body mb-2 pb-4" />
         </div>
       </div>
@@ -47,7 +61,7 @@ query {
         Posting_Date (format: "MMMM D, YYYY")
         Company
         Location
-        Remuneration
+        Compensation
         Summary
       }
     }

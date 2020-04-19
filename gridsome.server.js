@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const pick = require("lodash.pick");
+const slugify = require("slugify");
 const { pathPrefix } = require("./gridsome.config");
 const luxon = require("luxon");
 
@@ -65,6 +66,7 @@ module.exports = function(api, options) {
       for (const item of result.data.records) {
         topicCollection.addNode({
           ...item.fields,
+          slug: slugify(item.fields.Name),
         });
       }
     });

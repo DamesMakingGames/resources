@@ -6,12 +6,23 @@
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
       </p>
 
+      <div class="py-6 my-12 border-b border-t">
+        <ul
+          v-for="topic in $page.topics.edges"
+          :key="topic.id"
+          class="flex flex-wrap border-gray-400"
+        >
+          <li class="inline-flex text-base font-bold mb-0">
+            <a :href="`#${topic.node.slug}`">{{ topic.node.Name }}</a>
+          </li>
+        </ul>
+      </div>
       <div
         v-for="topic in $page.topics.edges"
         :key="topic.id"
         class="post border-gray-400 border-b pb-6 mb-6"
       >
-        <h2 class="text-xl md:text-2xl font-bold mb-0">
+        <h2 class="text-xl md:text-2xl font-bold mb-0" :id="topic.node.slug">
           {{ topic.node.Name }}
         </h2>
         <div class="">
@@ -20,7 +31,7 @@
             :key="resource.id"
             class="my-2"
           >
-            <h3 class="text-lg">
+            <h3 class="text-xl">
               <a
                 :href="resource.node.URL"
                 :click="
@@ -49,6 +60,7 @@ query Resources {
       node {
         Name
         id
+        slug
         belongsTo {
           edges {
             node {
