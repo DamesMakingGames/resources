@@ -40,16 +40,12 @@
             >
           </li>
           <li class="mr-8 mb-6 lg:mb-0">
-            <g-link
-              to="/tag/community-manual"
-              class="text-copy-primary hover:text-red-800"
+            <g-link to="/gigs" class="text-copy-primary hover:text-red-800"
               >Gigs</g-link
             >
           </li>
           <li>
-            <g-link
-              to="/tag/organizers-manual"
-              class="text-copy-primary hover:text-red-800"
+            <g-link to="/tools" class="text-copy-primary hover:text-red-800"
               >Tools</g-link
             >
           </li>

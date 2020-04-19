@@ -11,6 +11,12 @@ h4 {
   @apply font-sans;
 }
 
+.markdown-body {
+  p:last-child {
+    @apply mb-0
+  }
+}
+
 main {
   a:not(.btn) {
     @apply text-red-700 underline;

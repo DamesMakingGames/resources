@@ -13,7 +13,21 @@ module.exports = function(api, options) {
   api.createPages(({ createPage }) => {
     createPage({
       path: "/",
-      component: "./src/templates/Index.vue",
+      component: "./src/templates/Covid.vue",
+      context: {
+        today: today,
+      },
+    });
+    createPage({
+      path: "/gigs",
+      component: "./src/templates/Gigs.vue",
+      context: {
+        today: today,
+      },
+    });
+    createPage({
+      path: "/tools",
+      component: "./src/templates/Tools.vue",
       context: {
         today: today,
       },
@@ -22,6 +36,7 @@ module.exports = function(api, options) {
   api.loadSource(async (store) => {
     const resourceCollection = store.addCollection("CovidResource");
     const topicCollection = store.addCollection("Topic");
+    const gigsCollection = store.addCollection("Gig");
     resourceCollection.addReference("topicList", "Topic");
 
     const covid19Data = await axios({
@@ -49,6 +64,18 @@ module.exports = function(api, options) {
     }).then((result) => {
       for (const item of result.data.records) {
         topicCollection.addNode({
+          ...item.fields,
+        });
+      }
+    });
+    const gigsData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/Gigs?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        gigsCollection.addNode({
           ...item.fields,
         });
       }
