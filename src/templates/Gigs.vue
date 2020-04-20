@@ -71,6 +71,10 @@
 
 <page-query>
 query {
+  metadata {
+    siteName
+    siteUrl
+  }
   gigs: allGig {
     edges {
       node {
