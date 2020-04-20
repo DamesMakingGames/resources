@@ -3,7 +3,7 @@
     <div class="container-inner mx-auto py-16">
       <div class="header">
         <h1 class="text-4xl font-bold leading-tight">
-          COVID-19 Relief Resources {{ $page.metadata.siteUrl }}
+          COVID-19 Relief Resources
         </h1>
         <div class="intro mt-6 p-6 bg-gray-100">
           <p>
