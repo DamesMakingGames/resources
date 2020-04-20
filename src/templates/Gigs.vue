@@ -15,7 +15,7 @@
           <h2 class="text-2xl">
             <a
               :href="gig.node.URL"
-              :click="`captureOutboundLink('${gig.node.URL}') return false ;`"
+              :onclick="`captureOutboundLink('${gig.node.URL}') return false ;`"
               target="_blank"
               >{{ gig.node.Title }}</a
             >
