@@ -131,5 +131,15 @@ export default {
   },
 };
 </script>
-
+<style lang="postcss">
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-red {
+  @apply bg-red-500 text-white;
+}
+.btn-red:hover {
+  @apply bg-red-700 text-white;
+}
+</style>
 <style src="../css/main.css" />
