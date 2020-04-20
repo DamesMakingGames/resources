@@ -34,7 +34,7 @@
             <h3 class="text-xl">
               <a
                 :href="resource.node.URL"
-                :click="
+                :onclick="
                   `captureOutboundLink('${resource.node.URL}') return false ;`
                 "
                 target="_blank"

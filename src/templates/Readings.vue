@@ -12,7 +12,7 @@
           <h2 class="text-base">
             <a
               :href="reading.node.URL"
-              :click="
+              :onclick="
                 `captureOutboundLink('${reading.node.URL}') return false ;`
               "
               target="_blank"
