@@ -100,8 +100,37 @@ export default {
       today: this.$today,
     };
   },
-  metaInfo: {
-    title: "DMG Gigs Directory",
+  metaInfo() {
+    return {
+      title: "DMG Gigs and Opportunities",
+      meta: [
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:image",
+          content: `${this.$page.metadata.siteUrl}/images/gigs.png`,
+        },
+        { name: "twitter:site", content: "@DMGToronto" },
+        {
+          name: "twitter:title",
+          content: "Gigs and Opportunies for DMG Members",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "A directory of jobs, contracts, paid speaking opportunies and other gigs by DMG members.",
+        },
+        { name: "og:title", content: "Gigs and Opportunies for DMG Members" },
+        {
+          name: "og:description",
+          content:
+            "A directory of jobs, contracts, paid speaking opportunies and other gigs by DMG members.",
+        },
+        {
+          name: "og:image",
+          content: `${this.$page.metadata.siteUrl}/images/gigs.png`,
+        },
+      ],
+    };
   },
 };
 </script>

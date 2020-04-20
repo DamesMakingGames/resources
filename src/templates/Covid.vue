@@ -3,7 +3,7 @@
     <div class="container-inner mx-auto py-16">
       <div class="header">
         <h1 class="text-4xl font-bold leading-tight">
-          COVID-19 Relief Resources
+          COVID-19 Relief Resources {{ $page.metadata.siteUrl }}
         </h1>
         <div class="intro mt-6 p-6 bg-gray-100">
           <p>
@@ -73,6 +73,10 @@
 
 <page-query>
 query Resources {
+  metadata {
+    siteName
+    siteUrl
+  }
   topics: allTopic {
     edges {
       node {
@@ -100,6 +104,7 @@ query Resources {
   }
 }
 
+
 </page-query>
 <style lang="postcss" scoped>
 .post-link {
@@ -113,8 +118,37 @@ export default {
       today: this.$today,
     };
   },
-  metaInfo: {
-    title: "DMG Programs Index",
+  metaInfo() {
+    return {
+      title: "DMG Resources Site",
+      meta: [
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:image",
+          content: `${this.$page.metadata.siteUrl}/images/covid19.png`,
+        },
+        { name: "twitter:site", content: "@DMGToronto" },
+        {
+          name: "twitter:title",
+          content: "COVID-19 Resources for DMG Members",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "A directory of programs, funds, readings and support offerings to get DMG members through COVID-19.",
+        },
+        { name: "og:title", content: "COVID-19 Resources for DMG Members" },
+        {
+          name: "og:description",
+          content:
+            "A directory of programs, funds, readings and support offerings to get DMG members through COVID-19.",
+        },
+        {
+          name: "og:image",
+          content: `${this.$page.metadata.siteUrl}/images/covid19.png`,
+        },
+      ],
+    };
   },
 };
 </script>

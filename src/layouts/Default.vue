@@ -98,6 +98,7 @@
 query {
   metadata {
     siteName
+    siteUrl
   }
 }
 </static-query>
@@ -106,14 +107,16 @@ query {
 import SearchInput from "../components/SearchInput";
 
 export default {
-  metaInfo: {
-    htmlAttrs: {
-      lang: "en",
-      class: "text-gray-900 antialiased",
-    },
-    bodyAttrs: {
-      class: "font-mono text-base flex flex-col min-h-screen",
-    },
+  metaInfo() {
+    return {
+      htmlAttrs: {
+        lang: "en",
+        class: "text-gray-900 antialiased",
+      },
+      bodyAttrs: {
+        class: "text-base flex flex-col min-h-screen",
+      },
+    };
   },
   components: {
     SearchInput,

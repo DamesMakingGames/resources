@@ -7,11 +7,10 @@ require("dotenv").config();
 if (process.env.NODE_ENV === "production") postcssPlugins.push(purgecss());
 
 module.exports = {
-  cacheBusting: false,
-
   siteName: "DMG Community Resources",
   siteDescription: "DMG community resources",
   siteUrl: "https://resources.dmg.to",
+  cacheBusting: false,
   transformers: {
     remark: {
       externalLinksTarget: "_blank",
