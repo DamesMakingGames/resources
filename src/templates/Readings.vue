@@ -29,18 +29,17 @@
 
 <page-query>
 query {
-  readings: allReading {
+  readings: allReading(sortBy: "Created", order: DESC) {
     edges {
       node {
         Name
         URL
         Notes
+        Created
       }
     }
   }
 }
-
-
 </page-query>
 <style lang="postcss" scoped>
 .post-link {

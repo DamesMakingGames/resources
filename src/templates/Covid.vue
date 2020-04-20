@@ -1,8 +1,26 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <h1 class="text-4xl font-bold leading-tight">Resources</h1>
-      <p class="text-gray-600">
+      <div class="header">
+        <h1 class="text-4xl font-bold leading-tight">
+          COVID-19 Relief Resources
+        </h1>
+        <div class="intro mt-6 p-6 bg-gray-100">
+          <p>
+            The resources below have been shared by DMG members. Know of a tool,
+            program, article or other resource related to COVID-19 that you
+            think the community could benefit from?
+          </p>
+          <span class="lg:m-0 lg:p-0 align-middle my-6 flex">
+            <a
+              class="btn btn-red leading-normal align-middle"
+              href="https://airtable.com/shrFmla1rCL3vXnOF"
+              >+ Submit</a
+            >
+          </span>
+        </div>
+      </div>
+      <p class="text-gray-600 my-6">
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
       </p>
 
