@@ -3,6 +3,13 @@
 
 
 /* purgecss start ignore */
+#dmg-logo {
+  @apply w-32;
+
+  path {
+    fill: #000
+  }
+}
 
 h1,
 h2,
