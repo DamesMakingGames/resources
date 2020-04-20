@@ -1,8 +1,26 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <h1 class="text-4xl font-bold leading-tight">Gigs &amp; Opportunities</h1>
-      <p class="text-gray-600">
+      <div class="header">
+        <h1 class="text-4xl font-bold leading-tight">
+          Gigs &amp; Opportunities
+        </h1>
+        <div class="intro mt-6 p-6 bg-gray-100">
+          <p>
+            All opportunities below have been shared by DMG members who work
+            with or know the posting companies, and are <b>paid</b>. Have an
+            opportunity to share with the community?
+          </p>
+          <span class="lg:m-0 lg:p-0 align-middle my-6 flex">
+            <a
+              class="btn btn-red leading-normal align-middle"
+              href="https://airtable.com/shr90IMQUKUkkQxOO"
+              >+ Submit</a
+            >
+          </span>
+        </div>
+      </div>
+      <p class="text-gray-600 my-6">
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
       </p>
 
