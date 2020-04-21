@@ -123,12 +123,12 @@ export default {
         },
         {
           name: "twitter:description",
-          content: "A little list of tools recommeded by and for DMG Members",
+          content: "A little list of tools recommended by and for DMG Members",
         },
         { name: "og:title", content: "DMG Resources - Tools" },
         {
           name: "og:description",
-          content: "A little list of tools recommeded by and for DMG Members",
+          content: "A little list of tools recommended by and for DMG Members",
         },
         {
           name: "og:image",
