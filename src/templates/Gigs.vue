@@ -37,11 +37,10 @@
               target="_blank"
               >{{ gig.node.Title }}</a
             >
-
-            <small class="uppercase text-sm tracking-wide text-red-500 ml-2">
-              {{ gig.node.Company }}
-            </small>
           </h2>
+          <p class="font-bold">
+            {{ gig.node.Company }}
+          </p>
           <p class=" mb-0">
             <span class="uppercase text-sm tracking-wide text-gray-600">
               Posted</span
@@ -75,7 +74,7 @@ query {
     siteName
     siteUrl
   }
-  gigs: allGig {
+  gigs: allGig(sortBy: "Posting_Date", order: ASC) {
     edges {
       node {
         Title
