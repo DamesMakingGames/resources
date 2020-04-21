@@ -40,19 +40,34 @@ module.exports = function(api, options) {
         today: today,
       },
     });
+    createPage({
+      path: "/tools",
+      component: "./src/templates/Tools.vue",
+      context: {
+        today: today,
+      },
+    });
   });
   api.loadSource(async (store) => {
     const resourceCollection = store.addCollection("CovidResource");
-    const topicCollection = store.addCollection("Topic");
+    resourceCollection.addReference("topicList", "Topic");
+
     const gigsCollection = store.addCollection("Gig");
     const readingsCollection = store.addCollection("Reading");
-    resourceCollection.addReference("topicList", "Topic");
+
+    const toolsCollection = store.addCollection("Tools");
+    toolsCollection.addReference("toolTypeList", "ToolType");
+
+    const topicCollection = store.addCollection("Topic");
+    const toolTypeCollection = store.addCollection("ToolType");
 
     const covid19Data = await axios({
       method: "GET",
       url: `https://api.airtable.com/v0/${
         process.env.airtable_base_id
-      }/COVID-19?api_key=${process.env.airtable_api_key}`,
+      }/COVID-19?api_key=${
+        process.env.airtable_api_key
+      }&view=viw5GiVdKoC7tPv3w`,
     }).then((result) => {
       for (const item of result.data.records) {
         let topic = item.fields.Topics;
@@ -62,6 +77,23 @@ module.exports = function(api, options) {
         resourceCollection.addNode({
           ...item.fields,
           topicList: topicList,
+        });
+      }
+    });
+    const toolsData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/Tools?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        let toolType = item.fields.Type;
+        let toolTypeList = toolType.map(function(toolType) {
+          return toolType;
+        });
+        toolsCollection.addNode({
+          ...item.fields,
+          toolTypeList: toolTypeList,
         });
       }
     });
@@ -78,11 +110,25 @@ module.exports = function(api, options) {
         });
       }
     });
+    const toolTypeData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/Tool%20Types?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        toolTypeCollection.addNode({
+          ...item.fields,
+          id: item.id,
+          slug: slugify(item.fields.Name),
+        });
+      }
+    });
     const gigsData = await axios({
       method: "GET",
       url: `https://api.airtable.com/v0/${
         process.env.airtable_base_id
-      }/Gigs?api_key=${process.env.airtable_api_key}`,
+      }/Gigs?api_key=${process.env.airtable_api_key}&view=viwFhgFnXRezJh662`,
     }).then((result) => {
       for (const item of result.data.records) {
         gigsCollection.addNode({

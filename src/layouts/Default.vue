@@ -40,11 +40,11 @@
               >Gigs</g-link
             >
           </li>
-          <!-- <li class="mr-8 mb-6 lg:mb-0">
+          <li class="text-center px-6 mb-10 lg:mb-0 ">
             <g-link to="/tools" class="text-copy-primary hover:text-red-800"
               >Tools</g-link
             >
-          </li> -->
+          </li>
           <li class="text-center px-6 mb-10 lg:mb-0 ">
             <g-link to="/readings" class="text-copy-primary hover:text-red-800"
               >Random</g-link
