@@ -84,7 +84,7 @@ module.exports = function(api, options) {
       method: "GET",
       url: `https://api.airtable.com/v0/${
         process.env.airtable_base_id
-      }/Tools?api_key=${process.env.airtable_api_key}`,
+      }/Tools?api_key=${process.env.airtable_api_key}&view=viwTkF7VKpuoIRcrS`,
     }).then((result) => {
       for (const item of result.data.records) {
         let toolType = item.fields.Type;
