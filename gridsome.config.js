@@ -11,6 +11,16 @@ module.exports = {
   siteDescription: "DMG community resources",
   siteUrl: "https://resources.dmg.to",
   cacheBusting: false,
+  plugins: [
+    {
+      use: "gridsome-plugin-gtm",
+      options: {
+        id: `GTM-${process.env.gtm_id}`,
+        enabled: true,
+        debug: true,
+      },
+    },
+  ],
   transformers: {
     remark: {
       externalLinksTarget: "_blank",
