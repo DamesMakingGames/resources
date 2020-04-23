@@ -115,18 +115,18 @@ export default {
         { name: "twitter:site", content: "@DMGToronto" },
         {
           name: "twitter:title",
-          content: "Gigs and Opportunies for DMG Members",
+          content: "Gigs and Opportunities for DMG Members",
         },
         {
           name: "twitter:description",
           content:
-            "A directory of jobs, contracts, paid speaking opportunies and other gigs by DMG members.",
+            "A directory of jobs, contracts, paid speaking Opportunities and other gigs by DMG members.",
         },
-        { name: "og:title", content: "Gigs and Opportunies for DMG Members" },
+        { name: "og:title", content: "Gigs and Opportunities for DMG Members" },
         {
           name: "og:description",
           content:
-            "A directory of jobs, contracts, paid speaking opportunies and other gigs by DMG members.",
+            "A directory of jobs, contracts, paid speaking Opportunities and other gigs by DMG members.",
         },
         {
           name: "og:image",
