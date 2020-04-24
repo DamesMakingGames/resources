@@ -31,12 +31,7 @@
           class="my-2 py-2 border-b"
         >
           <h2 class="text-2xl">
-            <a
-              :href="gig.node.URL"
-              :onclick="`captureOutboundLink('${gig.node.URL}') return false ;`"
-              target="_blank"
-              >{{ gig.node.Title }}</a
-            >
+            <a :href="gig.node.URL" target="_blank">{{ gig.node.Title }}</a>
           </h2>
           <p class="font-bold">
             {{ gig.node.Company }}

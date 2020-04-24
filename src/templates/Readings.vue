@@ -10,14 +10,9 @@
           class="my-2 py-2 border-b"
         >
           <h2 class="text-base">
-            <a
-              :href="reading.node.URL"
-              :onclick="
-                `captureOutboundLink('${reading.node.URL}') return false ;`
-              "
-              target="_blank"
-              >{{ reading.node.Name }}</a
-            >
+            <a :href="reading.node.URL" target="_blank">{{
+              reading.node.Name
+            }}</a>
           </h2>
 
           <div v-html="reading.node.Notes" class="markdown-body mb-2 pb-4" />

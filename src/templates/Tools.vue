@@ -47,13 +47,7 @@
             class="my-2"
           >
             <h3 class="text-xl">
-              <a
-                :href="tool.node.URL"
-                :onclick="
-                  `captureOutboundLink('${tool.node.URL}') return false ;`
-                "
-                target="_blank"
-              >
+              <a :href="tool.node.URL" target="_blank">
                 {{ tool.node.Name }}
               </a>
             </h3>
