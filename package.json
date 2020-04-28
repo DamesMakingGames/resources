@@ -1,5 +1,5 @@
 {
-  "name": "DMG Resources",
+  "name": "dmg-resources",
   "private": true,
   "scripts": {
     "build": "gridsome build",
@@ -20,6 +20,7 @@
     "gridsome-plugin-rss": "^1.2.0",
     "lodash.pick": "^4.4.0",
     "luxon": "^1.23.0",
+    "marked": "^1.0.0",
     "postcss-nested": "^4.2.1",
     "slugify": "^1.4.0",
     "vue-fuse": "^2.2.1",

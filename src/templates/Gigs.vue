@@ -56,7 +56,10 @@
             {{ gig.node.Location }}
           </p>
 
-          <div v-html="gig.node.Summary" class="markdown-body mb-2 pb-4" />
+          <div
+            v-html="marked(gig.node.Summary)"
+            class="markdown-body mb-2 pb-4"
+          />
         </div>
       </div>
     </div>

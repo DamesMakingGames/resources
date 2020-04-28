@@ -2,12 +2,17 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from "~/layouts/Default.vue";
+
 import VueScrollTo from "vue-scrollto";
 import VueLuxon from "vue-luxon";
 
 import VueFuse from "vue-fuse";
-
 export default function(Vue, { router, head, isClient }) {
+  head.htmlAttrs = { lang: "en" };
+  head.bodyAttrs = {
+    class: "text-base flex flex-col min-h-screen text-gray-900 antialiased",
+  };
+
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
 
@@ -16,6 +21,18 @@ export default function(Vue, { router, head, isClient }) {
     easing: "ease",
   });
 
+  var marked = require("marked");
+  marked.setOptions({
+    smartypants: true,
+    gfm: true,
+  });
+  Vue.mixin({
+    methods: {
+      marked: function(input) {
+        return marked(input);
+      },
+    },
+  });
   Vue.use(VueFuse);
 
   head.meta.push({

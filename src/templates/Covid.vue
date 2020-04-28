@@ -57,7 +57,10 @@
             <h4 class=" text-base leading-relaxed text-gray-600">
               {{ resource.node.Author_or_Publisher }}
             </h4>
-            <div v-html="resource.node.Notes" class="markdown-body mb-2 pb-4" />
+            <div
+              class="markdown-body mb-2 pb-4"
+              v-html="marked(resource.node.Notes)"
+            />
           </div>
         </div>
       </div>
@@ -77,7 +80,7 @@ query Resources {
         Name
         id
         slug
-        belongsTo {
+        belongsTo(sortBy:"Created", order:DESC) {
           edges {
             node {
               ... on CovidResource {
