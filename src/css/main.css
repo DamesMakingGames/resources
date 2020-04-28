@@ -3,8 +3,14 @@
 
 
 /* purgecss start ignore */
+
+svg {
+  margin: 0;
+}
+
 #dmg-logo {
   @apply w-32;
+  margin: 0 auto;
 
   path {
     fill: #000
