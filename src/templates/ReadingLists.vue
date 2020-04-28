@@ -10,7 +10,7 @@
           class="my-2 py-2 border-b"
         >
           <h2 class="text-2xl">
-            <a :href="list.node.path">{{ list.node.title }}</a>
+            <a :href="list.node.path" v-html="marked(list.node.title)" />
           </h2>
 
           <div v-html="list.node.summary" class="markdown-body mb-2 pb-4" />
