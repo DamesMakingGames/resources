@@ -1,21 +1,19 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <h1 class="text-4xl font-bold leading-tight">Reading List</h1>
+      <h1 class="text-4xl font-bold leading-tight">Reading Lists</h1>
 
       <div class="">
         <div
-          v-for="reading in $page.readings.edges"
-          :key="reading.id"
+          v-for="list in $page.lists.edges"
+          :key="list.id"
           class="my-2 py-2 border-b"
         >
-          <h2 class="text-base">
-            <a :href="reading.node.URL" target="_blank">{{
-              reading.node.Name
-            }}</a>
+          <h2 class="text-2xl">
+            <a :href="list.node.path">{{ list.node.title }}</a>
           </h2>
 
-          <div v-html="reading.node.Notes" class="markdown-body mb-2 pb-4" />
+          <div v-html="list.node.summary" class="markdown-body mb-2 pb-4" />
         </div>
       </div>
     </div>
@@ -24,13 +22,14 @@
 
 <page-query>
 query {
-  readings: allReading(sortBy: "Created", order: DESC) {
+
+  lists: allReadingList {
     edges {
       node {
-        Name
-        URL
-        Notes
-        Created
+        title
+        content
+        summary
+        path
       }
     }
   }

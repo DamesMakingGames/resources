@@ -24,12 +24,6 @@
           class="uppercase justify-center tracking-wide items-center font-bold w-full block flex-grow lg:flex lg:w-auto items-center mt-8 lg:mt-0"
           :class="isOpen ? 'block' : 'hidden'"
         >
-          <!-- 
-          <li class="mr-8 mb-6 lg:mb-0">
-              <search-input />
-          </li>
-               -->
-
           <li class="text-center px-6 mb-10 lg:mb-0">
             <g-link to="/" class="text-copy-primary hover:text-red-800"
               >COVID-19 Relief</g-link
@@ -46,8 +40,10 @@
             >
           </li>
           <li class="text-center px-6 mb-10 lg:mb-0 ">
-            <g-link to="/readings" class="text-copy-primary hover:text-red-800"
-              >Random</g-link
+            <g-link
+              to="/reading-lists"
+              class="text-copy-primary hover:text-red-800"
+              >Reading Lists</g-link
             >
           </li>
         </ul>
@@ -100,23 +96,10 @@ query {
 </static-query>
 
 <script>
-import SearchInput from "../components/SearchInput";
 import DmgLogo from "../components/DmgLogo";
 
 export default {
-  metaInfo() {
-    return {
-      htmlAttrs: {
-        lang: "en",
-        class: "text-gray-900 antialiased",
-      },
-      bodyAttrs: {
-        class: "text-base flex flex-col min-h-screen",
-      },
-    };
-  },
   components: {
-    SearchInput,
     DmgLogo,
   },
 

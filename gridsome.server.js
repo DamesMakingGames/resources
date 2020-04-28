@@ -34,15 +34,8 @@ module.exports = function(api, options) {
       },
     });
     createPage({
-      path: "/readings",
-      component: "./src/templates/Readings.vue",
-      context: {
-        today: today,
-      },
-    });
-    createPage({
-      path: "/tools",
-      component: "./src/templates/Tools.vue",
+      path: "/reading-lists",
+      component: "./src/templates/ReadingLists.vue",
       context: {
         today: today,
       },
@@ -53,7 +46,6 @@ module.exports = function(api, options) {
     resourceCollection.addReference("topicList", "Topic");
 
     const gigsCollection = store.addCollection("Gig");
-    const readingsCollection = store.addCollection("Reading");
 
     const toolsCollection = store.addCollection("Tools");
     toolsCollection.addReference("toolTypeList", "ToolType");
@@ -136,19 +128,6 @@ module.exports = function(api, options) {
         });
       }
     });
-    const readingsData = await axios({
-      method: "GET",
-      url: `https://api.airtable.com/v0/${
-        process.env.airtable_base_id
-      }/Readings?api_key=${process.env.airtable_api_key}`,
-    }).then((result) => {
-      for (const item of result.data.records) {
-        readingsCollection.addNode({
-          ...item.fields,
-        });
-      }
-    });
-
     const cleanedPathPrefix = `${
       pathPrefix
         ? ["", ...pathPrefix.split("/").filter((dir) => dir.length)].join("/")

@@ -52,7 +52,10 @@
               </a>
             </h3>
 
-            <div v-html="tool.node.Notes" class="markdown-body mb-2 pb-4" />
+            <div
+              v-html="marked(tool.node.Notes)"
+              class="markdown-body mb-2 pb-4"
+            />
           </div>
         </div>
       </div>
