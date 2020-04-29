@@ -77,6 +77,31 @@ export default {
   metaInfo() {
     return {
       title: this.$page.list.title,
+      meta: [
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:image",
+          content: `${this.$page.metadata.siteUrl}/images/reading.png`,
+        },
+        { name: "twitter:site", content: "@DMGToronto" },
+        {
+          name: "twitter:title",
+          content: this.$page.list.title,
+        },
+        {
+          name: "twitter:description",
+          content: this.$page.list.summary,
+        },
+        { name: "og:title", content: this.$page.list.title },
+        {
+          name: "og:description",
+          content: this.$page.list.summary,
+        },
+        {
+          name: "og:image",
+          content: `${this.$page.metadata.siteUrl}/images/reading.png`,
+        },
+      ],
       bodyAttrs: {
         id: "reading-list",
       },
