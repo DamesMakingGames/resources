@@ -22,7 +22,10 @@
 
 <page-query>
 query {
-
+  metadata {
+    siteName
+    siteUrl
+  }
   lists: allReadingList {
     edges {
       node {
