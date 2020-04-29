@@ -41,6 +41,10 @@
 <page-query>
 
 query ReadingList($path: String!) {
+  metadata {
+    siteName
+    siteUrl
+  }
   list: readingList(path: $path) {
     title
     path
