@@ -47,8 +47,35 @@ export default {
       today: this.$today,
     };
   },
-  metaInfo: {
-    title: "DMG Gigs Directory",
+  metaInfo() {
+    return {
+      title: "DMG Reading Lists",
+      meta: [
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:image",
+          content: `${this.$page.metadata.siteUrl}/images/reading.png`,
+        },
+        { name: "twitter:site", content: "@DMGToronto" },
+        {
+          name: "twitter:title",
+          content: "Reading Lists by and for DMG Members",
+        },
+        {
+          name: "twitter:description",
+          content: "Books, videos, games and more recommended by DMG folks.",
+        },
+        { name: "og:title", content: "Reading Lists by and for DMG Members" },
+        {
+          name: "og:description",
+          content: "Books, videos, games and more recommended by DMG folks.",
+        },
+        {
+          name: "og:image",
+          content: `${this.$page.metadata.siteUrl}/images/reading.png`,
+        },
+      ],
+    };
   },
 };
 </script>
