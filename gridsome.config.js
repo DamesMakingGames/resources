@@ -1,10 +1,7 @@
 const postcssNested = require("postcss-nested");
 const tailwind = require("tailwindcss");
-const purgecss = require("@fullhuman/postcss-purgecss");
 const postcssPlugins = [tailwind(), postcssNested];
 require("dotenv").config();
-
-if (process.env.NODE_ENV === "production") postcssPlugins.push(purgecss());
 
 module.exports = {
   siteName: "DMG Community Resources",
