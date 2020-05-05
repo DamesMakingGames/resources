@@ -40,7 +40,7 @@
             <span class="uppercase text-sm tracking-wide text-gray-600">
               Posted</span
             >
-            {{ gig.node.Posting_Date }}
+            {{ gig.node.Posting_Date | luxon("LLL d, yyyy") }}
           </p>
           <p class=" mb-0">
             <span class="uppercase text-sm tracking-wide text-gray-600">
@@ -77,7 +77,7 @@ query {
       node {
         Title
         URL
-        Posting_Date (format: "MMMM D, YYYY")
+        Posting_Date
         Company
         Location
         Compensation
