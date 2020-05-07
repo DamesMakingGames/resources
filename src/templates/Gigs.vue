@@ -40,7 +40,7 @@
             <span class="uppercase text-sm tracking-wide text-gray-600">
               Posted</span
             >
-            {{ gig.node.Posting_Date | luxon("LLL d, yyyy") }}
+            {{ gig.node.posted | luxon("LLL d, yyyy") }}
           </p>
           <p class=" mb-0">
             <span class="uppercase text-sm tracking-wide text-gray-600">
@@ -72,12 +72,13 @@ query {
     siteName
     siteUrl
   }
-  gigs: allGig(sortBy: "Posting_Date", order: ASC) {
+  gigs: allGig(sortBy: "posted", order: DESC) {
+    
     edges {
       node {
         Title
         URL
-        Posting_Date
+        posted
         Company
         Location
         Compensation
