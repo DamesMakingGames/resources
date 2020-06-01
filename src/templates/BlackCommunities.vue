@@ -56,7 +56,7 @@ query {
     siteName
     siteUrl
   }
-  links: allBlackCommunities(sortBy: "PostingDate", order: ASC) {
+  links: allBlackCommunities(sortBy: "Order", order: ASC) {
     edges {
       node {
         Title
@@ -64,6 +64,7 @@ query {
         Notes
         Locale
         Source
+        Order
 
       }
     }
