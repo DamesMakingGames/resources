@@ -13,7 +13,7 @@ const axios = require("axios");
 module.exports = function(api, options) {
   api.createPages(({ createPage }) => {
     createPage({
-      path: "/support-black-communities",
+      path: "/",
       component: "./src/templates/BlackCommunities.vue",
       context: {
         today: today,
