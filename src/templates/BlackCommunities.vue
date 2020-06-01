@@ -10,8 +10,8 @@
             We're collecting links shared within our community and from our
             partners to <b>actions</b> and <b>tools</b> for white and non-Black
             people to support individuals, organizing groups and others leading
-            movements and directly impacted by violent racism in Toronto and the
-            U.S.
+            movements and directly impacted by state violence and racism in
+            Toronto and the U.S.
           </p>
         </div>
       </div>
