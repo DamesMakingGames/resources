@@ -5,6 +5,15 @@
         <h1 class="text-4xl font-bold leading-tight">
           Support Black Communities
         </h1>
+        <div class="intro mt-6 p-6 bg-gray-100">
+          <p class="mb-0">
+            We're collecting links shared within our community and from our
+            partners to <b>actions</b> and <b>tools</b> for white and non-Black
+            people to support individuals, organizing groups and others leading
+            movements and directly impacted by violent racism in Toronto and the
+            U.S.
+          </p>
+        </div>
       </div>
       <p class="text-gray-600 my-6">
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
@@ -20,9 +29,12 @@
             <a :href="link.node.URL" target="_blank">{{ link.node.Title }}</a>
           </h2>
 
-          <div class="flex jus justify-between mb-3">
-            <div class="mb-0 source" v-if="link.node.Source">
-              <span class="uppercase text-sm tracking-wide text-gray-600">
+          <div class="flex jus justify-between  mb-3">
+            <div class="mb-0 source">
+              <span
+                class="uppercase text-sm tracking-wide text-gray-600"
+                v-if="link.node.Source"
+              >
                 Source
               </span>
               <span
@@ -31,7 +43,7 @@
               />
             </div>
 
-            <div class=" mb-0" v-if="link.node.Locale == 'Toronto'">
+            <div class=" mb-0 flex-end" v-if="link.node.Locale == 'Toronto'">
               <span
                 class="bg-black text-white uppercase text-sm tracking-wide px-1"
               >
