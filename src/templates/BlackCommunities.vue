@@ -20,12 +20,25 @@
             <a :href="link.node.URL" target="_blank">{{ link.node.Title }}</a>
           </h2>
 
-          <p class=" mb-0">
-            <span class="uppercase text-sm tracking-wide text-gray-600">
-              Locale
-            </span>
-            {{ link.node.Locale }}
-          </p>
+          <div class="flex jus justify-between mb-3">
+            <div class="mb-0 source" v-if="link.node.Source">
+              <span class="uppercase text-sm tracking-wide text-gray-600">
+                Source
+              </span>
+              <span
+                v-html="marked(link.node.Source)"
+                class="markdown-body mb-2 pb-4"
+              />
+            </div>
+
+            <div class=" mb-0" v-if="link.node.Locale == 'Toronto'">
+              <span
+                class="bg-black text-white uppercase text-sm tracking-wide px-1"
+              >
+                {{ link.node.Locale }}
+              </span>
+            </div>
+          </div>
 
           <div
             v-html="marked(link.node.Notes)"
@@ -50,6 +63,7 @@ query {
         URL
         Notes
         Locale
+        Source
 
       }
     }
@@ -60,6 +74,9 @@ query {
 </page-query>
 <style lang="postcss" scoped>
 .post-link {
+  @apply text-gray-800 font-normal leading-normal;
+}
+.source a:not(.btn) {
   @apply text-gray-800 font-normal leading-normal;
 }
 </style>
