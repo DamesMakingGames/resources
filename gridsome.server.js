@@ -141,7 +141,9 @@ module.exports = function(api, options) {
       method: "GET",
       url: `https://api.airtable.com/v0/${
         process.env.airtable_base_id
-      }/BLM?api_key=${process.env.airtable_api_key}&view=viwJqFUatVr9yro3a`,
+      }/Support%20Black%20Communities?api_key=${
+        process.env.airtable_api_key
+      }&view=viwJqFUatVr9yro3a`,
     }).then((result) => {
       for (const item of result.data.records) {
         blackCommunitiesCollection.addNode({
