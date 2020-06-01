@@ -13,7 +13,14 @@ const axios = require("axios");
 module.exports = function(api, options) {
   api.createPages(({ createPage }) => {
     createPage({
-      path: "/",
+      path: "/support-black-communities",
+      component: "./src/templates/BlackCommunities.vue",
+      context: {
+        today: today,
+      },
+    });
+    createPage({
+      path: "/covid-19",
       component: "./src/templates/Covid.vue",
       context: {
         today: today,
@@ -42,6 +49,8 @@ module.exports = function(api, options) {
     });
   });
   api.loadSource(async (store) => {
+    const blackCommunitiesCollection = store.addCollection("BlackCommunities");
+
     const resourceCollection = store.addCollection("CovidResource");
     resourceCollection.addReference("topicList", "Topic");
 
@@ -124,6 +133,18 @@ module.exports = function(api, options) {
     }).then((result) => {
       for (const item of result.data.records) {
         gigsCollection.addNode({
+          ...item.fields,
+        });
+      }
+    });
+    const blackCommunitiesData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/BLM?api_key=${process.env.airtable_api_key}&view=viwJqFUatVr9yro3a`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        blackCommunitiesCollection.addNode({
           ...item.fields,
         });
       }

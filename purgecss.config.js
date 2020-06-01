@@ -13,7 +13,7 @@ module.exports = {
     "./src/**/*.pug",
     "./src/**/*.md",
     "./docs/**/*.md",
-    "./content/**/*.md"
+    "./content/**/*.md",
   ],
   whitelist: [
     "body",
@@ -22,12 +22,12 @@ module.exports = {
     "a",
     "g-image",
     "g-image--lazy",
-    "g-image--loaded"
+    "g-image--loaded",
   ],
   extractors: [
     {
       extractor: TailwindExtractor,
-      extensions: ["vue", "js", "jsx", "md", "html", "pug"]
-    }
-  ]
+      extensions: ["vue", "js", "jsx", "md", "html", "pug"],
+    },
+  ],
 };

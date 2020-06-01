@@ -25,7 +25,14 @@
           :class="isOpen ? 'block' : 'hidden'"
         >
           <li class="text-center px-6 mb-10 lg:mb-0">
-            <g-link to="/" class="text-copy-primary hover:text-red-800"
+            <g-link
+              to="/support-black-communities"
+              class="text-copy-primary hover:text-red-800"
+              >Support Black Communities</g-link
+            >
+          </li>
+          <li class="text-center px-6 mb-10 lg:mb-0">
+            <g-link to="/covid-19" class="text-copy-primary hover:text-red-800"
               >COVID-19 Relief</g-link
             >
           </li>
