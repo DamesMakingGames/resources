@@ -43,7 +43,7 @@
               />
             </div>
 
-            <div class=" mb-0 flex-end" v-if="link.node.Locale == 'Toronto'">
+            <div class=" mb-0 flex-end" v-if="link.node.Locale">
               <span
                 class="bg-black text-white uppercase text-sm tracking-wide px-1"
               >
