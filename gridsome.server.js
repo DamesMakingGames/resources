@@ -50,17 +50,18 @@ module.exports = function(api, options) {
   });
   api.loadSource(async (store) => {
     const blackCommunitiesCollection = store.addCollection("BlackCommunities");
+    const categoryCollection = store.addCollection("Category");
+    blackCommunitiesCollection.addReference("categoryList", "Category");
 
     const resourceCollection = store.addCollection("CovidResource");
+    const topicCollection = store.addCollection("Topic");
     resourceCollection.addReference("topicList", "Topic");
 
-    const gigsCollection = store.addCollection("Gig");
-
     const toolsCollection = store.addCollection("Tools");
+    const toolTypeCollection = store.addCollection("ToolType");
     toolsCollection.addReference("toolTypeList", "ToolType");
 
-    const topicCollection = store.addCollection("Topic");
-    const toolTypeCollection = store.addCollection("ToolType");
+    const gigsCollection = store.addCollection("Gig");
 
     const covid19Data = await axios({
       method: "GET",
@@ -146,11 +147,30 @@ module.exports = function(api, options) {
       }&view=viwJqFUatVr9yro3a`,
     }).then((result) => {
       for (const item of result.data.records) {
+        let category = item.fields.Category;
+        let categoryList = category.map(function(category) {
+          return category;
+        });
         blackCommunitiesCollection.addNode({
           ...item.fields,
+          categoryList: categoryList,
         });
       }
     });
+    const categoryData = await axios({
+      method: "GET",
+      url: `https://api.airtable.com/v0/${
+        process.env.airtable_base_id
+      }/SBC%20Categories?api_key=${process.env.airtable_api_key}`,
+    }).then((result) => {
+      for (const item of result.data.records) {
+        categoryCollection.addNode({
+          ...item.fields,
+          slug: slugify(item.fields.Name),
+        });
+      }
+    });
+
     const cleanedPathPrefix = `${
       pathPrefix
         ? ["", ...pathPrefix.split("/").filter((dir) => dir.length)].join("/")

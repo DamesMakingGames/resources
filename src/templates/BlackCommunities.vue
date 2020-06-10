@@ -19,43 +19,67 @@
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
       </p>
 
+      <div class="py-6 my-12 border-b border-t">
+        <ul
+          v-for="category in $page.categories.edges"
+          :key="category.id"
+          class="flex flex-wrap border-gray-400"
+        >
+          <li class="inline-flex text-base font-bold mb-0">
+            <a :href="`#${category.node.slug}`">{{ category.node.Name }}</a>
+          </li>
+        </ul>
+      </div>
+
       <div class="">
         <div
-          v-for="link in $page.links.edges"
-          :key="link.id"
-          class="my-2 py-2 border-b"
+          v-for="category in $page.categories.edges"
+          :key="category.id"
+          class="my-2 py-2"
         >
-          <h2 class="text-2xl">
-            <a :href="link.node.URL" target="_blank">{{ link.node.Title }}</a>
+          <h2
+            class="text-xl md:text-2xl font-bold mb-0"
+            :id="category.node.slug"
+          >
+            {{ category.node.Name }}
           </h2>
-
-          <div class="flex jus justify-between  mb-3">
-            <div class="mb-0 source">
-              <span
-                class="uppercase text-sm tracking-wide text-gray-600"
-                v-if="link.node.Source"
-              >
-                Source
-              </span>
-              <span
-                v-html="marked(link.node.Source)"
-                class="markdown-body mb-2 pb-4"
-              />
-            </div>
-
-            <div class=" mb-0 flex-end" v-if="link.node.Locale">
-              <span
-                class="bg-black text-white uppercase text-sm tracking-wide px-1"
-              >
-                {{ link.node.Locale }}
-              </span>
-            </div>
-          </div>
-
           <div
-            v-html="marked(link.node.Notes)"
-            class="markdown-body mb-2 pb-4"
-          />
+            v-for="link in category.node.belongsTo.edges"
+            :key="link.id"
+            class="my-2 border-b border-gray-300"
+          >
+            <h3 class="text-xl">
+              <a :href="link.node.URL" target="_blank">{{ link.node.Title }}</a>
+            </h3>
+
+            <div class="flex jus justify-between  mb-3">
+              <div class="mb-0 source">
+                <span
+                  class="uppercase text-sm tracking-wide text-gray-600"
+                  v-if="link.node.Source"
+                >
+                  Source
+                </span>
+                <span
+                  v-html="marked(link.node.Source)"
+                  class="markdown-body mb-2 pb-4"
+                />
+              </div>
+
+              <div class=" mb-0 flex-end" v-if="link.node.Locale">
+                <span
+                  class="bg-black text-white uppercase text-sm tracking-wide px-1"
+                >
+                  {{ link.node.Locale }}
+                </span>
+              </div>
+            </div>
+
+            <div
+              v-html="marked(link.node.Notes)"
+              class="markdown-body mb-2 pb-4"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -68,16 +92,26 @@ query {
     siteName
     siteUrl
   }
-  links: allBlackCommunities(sortBy: "Order", order: ASC) {
+  categories: allCategory {
     edges {
       node {
-        Title
-        URL
-        Notes
-        Locale
-        Source
-        Order
-
+        Name
+        id
+        slug
+        belongsTo(sortBy: "Created", order: DESC) {
+          edges {
+            node {
+              ... on BlackCommunities {
+                Title
+                URL
+                Notes
+                Locale
+                Source
+                Order
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -85,12 +119,14 @@ query {
 
 
 </page-query>
-<style lang="postcss" scoped>
-.post-link {
-  @apply text-gray-800 font-normal leading-normal;
-}
-.source a:not(.btn) {
-  @apply text-gray-800 font-normal leading-normal;
+<style lang="postcss">
+main {
+  .post-link {
+    @apply text-gray-800 font-normal leading-normal;
+  }
+  .source a:not(.btn) {
+    @apply text-gray-800 font-normal leading-normal;
+  }
 }
 </style>
 <script>
