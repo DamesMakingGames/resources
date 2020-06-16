@@ -46,8 +46,17 @@
           <div
             v-for="link in category.node.belongsTo.edges"
             :key="link.id"
-            class="my-2 border-b border-gray-300"
+            :class="
+              `my-2 border-b border-gray-300 ${
+                link.node.Archive == true ? 'bg-gray-200 px-4 py-2' : ''
+              }`
+            "
           >
+            <div v-if="link.node.Archive == true">
+              <span class="text-sm text-gray-600 uppercase tracking-wider">
+                Archived
+              </span>
+            </div>
             <h3 class="text-xl">
               <a :href="link.node.URL" target="_blank">{{ link.node.Title }}</a>
             </h3>
@@ -92,13 +101,14 @@ query {
     siteName
     siteUrl
   }
-  categories: allCategory {
+  
+categories: allCategory {
     edges {
       node {
         Name
         id
         slug
-        belongsTo(sortBy: "Created", order: DESC) {
+        belongsTo(sortBy: "Date_Added", order: DESC) {
           edges {
             node {
               ... on BlackCommunities {
@@ -108,6 +118,8 @@ query {
                 Locale
                 Source
                 Order
+                Archive
+                Date_Added
               }
             }
           }
