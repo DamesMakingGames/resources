@@ -31,7 +31,32 @@
           class="my-2 py-2 border-b"
         >
           <h2 class="text-2xl">
-            <a :href="gig.node.URL" target="_blank">{{ gig.node.Title }}</a>
+            <div v-if="gig.node.URL">
+              <a :href="gig.node.URL" target="_blank">{{ gig.node.Title }}</a>
+            </div>
+            <div v-else-if="gig.node.PDF" class="flex">
+              {{ gig.node.Title }}
+              <a :href="gig.node.PDF[0].url"
+                ><span class="text-base ml-2 mr-0">PDF</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-file inline h-4 items-center"
+                >
+                  <path
+                    d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                  ></path>
+                  <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+              </a>
+            </div>
           </h2>
           <p class="font-bold">
             {{ gig.node.Company }}
@@ -78,6 +103,9 @@ query {
       node {
         Title
         URL
+        PDF {
+          url
+        }
         posted
         Company
         Location
