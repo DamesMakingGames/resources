@@ -28,12 +28,17 @@
         <div
           v-for="gig in $page.gigs.edges"
           :key="gig.id"
-          class="my-2 py-2 border-b"
+          :class="`my-2 py-2 border-b ${gig.node.Closed ? 'closed' : 'open'}`"
         >
+          <p class="closed-label">Closed</p>
           <h2 class="text-2xl">
-            <div v-if="gig.node.URL">
+            <div v-if="gig.node.Closed">
+              {{ gig.node.Title }}
+            </div>
+            <div v-else-if="gig.node.URL">
               <a :href="gig.node.URL" target="_blank">{{ gig.node.Title }}</a>
             </div>
+
             <div v-else-if="gig.node.PDF" class="flex">
               {{ gig.node.Title }}
               <a :href="gig.node.PDF[0].url"
@@ -61,29 +66,37 @@
           <p class="font-bold">
             {{ gig.node.Company }}
           </p>
-          <p class=" mb-0">
-            <span class="uppercase text-sm tracking-wide text-gray-600">
-              Posted</span
-            >
-            {{ gig.node.posted | luxon("LLL d, yyyy") }}
-          </p>
-          <p class=" mb-0">
-            <span class="uppercase text-sm tracking-wide text-gray-600">
-              Compensation
-            </span>
-            {{ gig.node.Compensation }}
-          </p>
+          <div class="info-block">
+            <p class=" mb-0">
+              <span class="uppercase text-sm tracking-wide text-gray-600">
+                Posted</span
+              >
+              {{ gig.node.posted | luxon("LLL d, yyyy") }}
+            </p>
+            <p class=" mb-0" v-if="gig.node.Closing_Date">
+              <span class="uppercase text-sm tracking-wide text-gray-600">
+                Close date</span
+              >
+              {{ gig.node.Closing_Date | luxon("LLL d, yyyy") }}
+            </p>
+            <p class=" mb-0">
+              <span class="uppercase text-sm tracking-wide text-gray-600">
+                Compensation
+              </span>
+              {{ gig.node.Compensation }}
+            </p>
 
-          <p v-if="gig.node.Location">
-            <span class="uppercase text-sm tracking-wide text-gray-600">
-              Location
-            </span>
-            {{ gig.node.Location }}
-          </p>
+            <p v-if="gig.node.Location">
+              <span class="uppercase text-sm tracking-wide text-gray-600">
+                Location
+              </span>
+              {{ gig.node.Location }}
+            </p>
+          </div>
 
           <div
             v-html="marked(gig.node.Summary)"
-            class="markdown-body mb-2 pb-4"
+            class="summary markdown-body mb-2 pb-4"
           />
         </div>
       </div>
@@ -109,6 +122,8 @@ query {
         posted
         Company
         Location
+        Closing_Date
+        Closed
         Compensation
         Summary
       }
@@ -121,6 +136,25 @@ query {
 <style lang="postcss" scoped>
 .post-link {
   @apply text-gray-800 font-normal leading-normal;
+}
+.open {
+  .closed-label {
+    @apply hidden;
+  }
+}
+.closed {
+  @apply bg-gray-100 p-6 relative;
+  .closed-label {
+    @apply visible absolute top-0 right-0 p-2 uppercase rounded-lg bg-white m-2;
+  }
+  p,
+  .markdown-body p {
+    @apply text-gray-600;
+  }
+  .summary,
+  .info-block {
+    @apply hidden;
+  }
 }
 </style>
 <script>
