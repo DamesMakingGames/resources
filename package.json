@@ -15,13 +15,13 @@
     "@gridsome/vue-remark": "^0.1.10",
     "axios": "^0.19.2",
     "bl": "^4.0.3",
-    "gridsome": "^0.7.20",
+    "gridsome": "^0.7.21",
     "gridsome-plugin-gtm": "^0.1.1",
     "gridsome-plugin-remark-shiki": "^0.3.1",
     "gridsome-plugin-rss": "^1.2.0",
     "lodash.pick": "^4.4.0",
     "luxon": "^1.25.0",
-    "marked": "^1.1.1",
+    "marked": "^1.2.0",
     "minimist": "^0.2.1",
     "postcss-nested": "^4.2.3",
     "remark-footnotes": "^1.0.0",
@@ -33,6 +33,6 @@
     "vue-scrollto": "^2.18.2"
   },
   "devDependencies": {
-    "tailwindcss": "^1.8.8"
+    "tailwindcss": "^1.8.10"
   }
 }
