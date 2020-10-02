@@ -17,9 +17,9 @@
           </span>
         </div> -->
       </div>
-      <p class="text-gray-600 my-6">
+      <!-- <p class="text-gray-600 my-6">
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
-      </p>
+      </p> -->
 
       <div class="py-6 my-12 border-b border-t">
         <ul
