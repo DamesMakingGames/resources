@@ -580,38 +580,6 @@
   font-size: .85em;
 }
 
-.markdown-body ol,
-.markdown-body ul {
-  padding-left: 2em;
-}
-
-.markdown-body ol ol,
-.markdown-body ol ul,
-.markdown-body ul ol,
-.markdown-body ul ul {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.markdown-body li {
-  word-wrap: break-all;
-}
-
-.markdown-body ul li {
-  list-style-type: disc;
-}
-
-.markdown-body ol li {
-  list-style-type: decimal;
-}
-
-.markdown-body li>p {
-  margin-top: 16px;
-}
-
-.markdown-body li+li {
-  margin-top: .25em;
-}
 
 .markdown-body dl {
   padding: 0;

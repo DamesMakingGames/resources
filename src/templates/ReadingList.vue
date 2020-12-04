@@ -67,12 +67,12 @@ body#reading-list {
   }
 
   li {
+    @apply border-b-2 border-gray-100 py-2;
     p {
       &:first-child {
-        @apply text-2xl mb-0;
+        @apply text-xl mb-1;
       }
     }
-    @apply border-b-2 border-gray-100 pb-6;
   }
 }
 </style>

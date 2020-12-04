@@ -5,16 +5,10 @@ summary: Resources and readings on ethical tech, AI and labour.
 slug: ethical-tech-reading-list
 ---
 
-Resources and readings on ethical tech, AI and labour.
-
 **Read & watch:**
 
 - [Critical Race & Digital Studies Syllabus](https://criticalracedigitalstudies.com/syllabus/)
-- _Algorithms of Oppression_ by [Dr. Safiya Umoja Noble](https://twitter.com/safiyanoble)
-
-  - Video lectures: At [USC (2017)](https://www.youtube.com/watch?v=oqelqdDIDSs) and [re:publica (2018)](https://www.youtube.com/watch?v=Q7yFysTBpAo)
-  - [Pocket curation](https://blog.getpocket.com/2020/06/the-bias-embedded-in-algorithms/)
-
+- _Algorithms of Oppression_ by [Dr. Safiya Umoja Noble](https://twitter.com/safiyanoble), plus video lectures: At [USC (2017)](https://www.youtube.com/watch?v=oqelqdDIDSs) and [re:publica (2018)](https://www.youtube.com/watch?v=Q7yFysTBpAo) and [Pocket curation](https://blog.getpocket.com/2020/06/the-bias-embedded-in-algorithms/)
 - _An Artificial Revolution_ by [Ivana Bartoletti](https://twitter.com/IvanaBartoletti)
 - _Antisocial Media: How Facebook Disconnects us and Undermines Democracy_ by [Siva Vaidhyanathan](https://twitter.com/sivavaid)
 - _Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor_ by [Virginia Eubanks](PopTechWorks)
