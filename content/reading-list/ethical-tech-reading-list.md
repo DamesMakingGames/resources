@@ -11,7 +11,7 @@ slug: ethical-tech-reading-list
 - _Algorithms of Oppression_ by [Dr. Safiya Umoja Noble](https://twitter.com/safiyanoble), plus video lectures: At [USC (2017)](https://www.youtube.com/watch?v=oqelqdDIDSs) and [re:publica (2018)](https://www.youtube.com/watch?v=Q7yFysTBpAo) and [Pocket curation](https://blog.getpocket.com/2020/06/the-bias-embedded-in-algorithms/)
 - _An Artificial Revolution_ by [Ivana Bartoletti](https://twitter.com/IvanaBartoletti)
 - _Antisocial Media: How Facebook Disconnects us and Undermines Democracy_ by [Siva Vaidhyanathan](https://twitter.com/sivavaid)
-- _Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor_ by [Virginia Eubanks](PopTechWorks)
+- _Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor_ by [Virginia Eubanks](https://twitter.com/PopTechWorks)
 - _Behind the Screen_ by [Sarah T. Roberts](https://twitter.com/ubiquity75)
 - _Black Software_ by [Charlton McIlwain](https://twitter.com/cmcilwain)
 - _Coded Bias_, documentary film by [Shalini Kantayya](https://twitter.com/shalinikantayya)
@@ -43,7 +43,7 @@ slug: ethical-tech-reading-list
 - [Ifeoma Ozoma](https://twitter.com/IfeomaOzoma)
 - [Joy Buolamwini](https://twitter.com/jovialjoy)
 - [Julie Owono](https://twitter.com/JulieOwono)
-- [Leslie Miley](@shaft)
+- [Leslie Miley](https://twitter.com/shaft)
 - [Timnit Gebru](https://twitter.com/timnitGebru)
 - [Tracy Chou](https://twitter.com/triketora)
 
