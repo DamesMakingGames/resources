@@ -31,6 +31,7 @@ slug: ethical-tech-reading-list
 - [Ethical Explorer](https://ethicalexplorer.org/), toolkit for critiquing ethical risks and decision making in your work or product, by Omidyar Network
 - [Feminist AI](https://www.feminist.ai/) - Doing community-based educational work around the unquestioned uses of artificial intelligence, and reimagining alternative technologies
 - [IntersectTO](https://intersectto.gitbook.io/community/) - a Toronto-based community group for people who identify as Black, Indigenous, and people of colour (BIPOC), who are interested in technology.
+- [Platform Abuse](https://www.platformabuse.org/) - A new resource that helps educate people involved in building online communities about potentially harmful features.
 - [The People's Guide to AI](https://alliedmedia.org/resources/peoples-guide-to-ai) - This guide breaks down and contextualizes artificial intelligence technologies within structural racism — and provides hands-on exercises to help us imagine beyond, and dream up alternate and ideal futures with AI.
 
 **Folks to follow on Twitter:**
