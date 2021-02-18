@@ -25,7 +25,7 @@ slug: ethical-tech-reading-list
 
 **Organizations, tools and initiatives:**
 
-- [Algorthimic Equity Toolkit](https://critplat.org/aekit/) - a collection of four components designed to identify surveillance and decision-making technologies used by governments; make sense of how those technologies work; and pose questions about their impacts, effectiveness, and oversight.
+- [Algorithmic Equity Toolkit](https://critplat.org/aekit/) - a collection of four components designed to identify surveillance and decision-making technologies used by governments; make sense of how those technologies work; and pose questions about their impacts, effectiveness, and oversight.
 - [Authority Collective](https://authoritycollective.org/) - The Authority Collective is a group of more than 200 womxn, non-binary and gender expansive people of color working in the photography, film and VR/AR industries. Our mission is to empower marginalized artists with resources and community, and to take action against systemic and individual abuses in the world of lens-based editorial, documentary and commercial visual work.
 - [Consentful Tech](https://www.consentfultech.io/) - The Consentful Tech Project raises awareness, develops strategies, and shares skills to help people build and use technology consentfully.
 - [Data & Society: Labor Futures](https://datasociety.net/research/labor_futures/) - The Labor Futures team at Data & Society uses ethnographic research to better understand emergent disruptions in the labor force as a result of data-centric technological development, with a special focus on structural inequalities.
