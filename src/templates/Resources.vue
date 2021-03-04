@@ -1,59 +1,83 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <div class="header">
+      <div class="header flex ar ju justify-between">
         <h1 class="text-4xl font-bold leading-tight">
-          Tools
+          Resources
         </h1>
-        <!-- <div class="intro mt-6 p-6 bg-gray-100">
-          <p>
-            The tools below have been shared by DMG members on Slack! Know of
-            something cool to share?
-          </p>
+        <div class="intro">
           <span class="lg:m-0 lg:p-0 align-middle my-6 flex">
             <a class="btn btn-red leading-normal align-middle" href=""
-              >+ Submit</a
+              >+ Submit something</a
             >
           </span>
-        </div> -->
+        </div>
       </div>
-      <!-- <p class="text-gray-600 my-6">
+      <p class="text-gray-600 my-6">
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
-      </p> -->
+      </p>
 
       <div class="py-6 my-12 border-b border-t">
         <ul
-          v-for="toolType in $page.toolTypes.edges"
-          :key="toolType.id"
+          v-for="category in $page.allCategories.edges"
+          :key="category.id"
           class="flex flex-wrap border-gray-400"
         >
           <li class="inline-flex text-base font-bold mb-0">
-            <a :href="`#${toolType.node.slug}`">{{ toolType.node.Name }}</a>
+            <a :href="`#${slug(category.node.name)}`">{{
+              category.node.name
+            }}</a>
           </li>
         </ul>
       </div>
       <div
-        v-for="toolType in $page.toolTypes.edges"
-        :key="toolType.id"
+        v-for="category in $page.allCategories.edges"
+        :key="category.id"
         class="post border-gray-400 border-b pb-6 mb-6"
       >
-        <h2 class="text-xl md:text-2xl font-bold mb-0" :id="toolType.node.slug">
-          {{ toolType.node.Name }}
+        <h2
+          class="text-xl md:text-2xl font-bold mb-0"
+          :id="slug(category.node.name)"
+        >
+          {{ category.node.name }}
         </h2>
-        <div class="">
+        <div class="grid grid-cols-1 divide-y divide-gray-500">
           <div
-            v-for="tool in toolType.node.belongsTo.edges"
+            v-for="tool in category.node.belongsTo.edges"
             :key="tool.id"
             class="my-2"
           >
-            <h3 class="text-xl">
-              <a :href="tool.node.URL" target="_blank">
-                {{ tool.node.Name }}
-              </a>
-            </h3>
+            <div class="flex justify-between  pt-2">
+              <h3 class="text-lg">
+                <a :href="tool.node.url" target="_blank">
+                  {{ tool.node.title }}
+                </a>
+              </h3>
+              <span
+                v-html="tool.node.type[0].name"
+                class="bg-gray-300 text-gray-600 rounded-sm px-2 py-1 text-sm"
+              />
+            </div>
+
+            <div class="flex jus justify-between  mb-3">
+              <div class="mb-0 source">
+                <span
+                  class="uppercase text-sm tracking-wide text-gray-600"
+                  v-if="tool.node.source"
+                >
+                  Source
+                </span>
+                <span
+                  v-if="tool.node.source"
+                  v-html="marked(tool.node.source)"
+                  class="markdown-body mb-2 pb-4 text-black"
+                />
+              </div>
+            </div>
 
             <div
-              v-html="marked(tool.node.Notes)"
+              v-if="tool.node.notes"
+              v-html="marked(tool.node.notes)"
               class="markdown-body mb-2 pb-4"
             />
           </div>
@@ -69,18 +93,23 @@ query Resources {
     siteName
     siteUrl
   }
-  toolTypes: allToolType {
+  allCategories: allCategory {
     edges {
       node {
-        Name
-        slug
-        belongsTo(sortBy: "Name", order: ASC) {
+        name
+        belongsTo(sortBy: "name", order: ASC) {
           edges {
             node {
-              ... on Tools {
-                Name
-                URL
-                Notes
+              ... on Resource {
+                title
+                url
+                notes
+                source
+                type {
+                  id
+                  name
+                }
+                topic
               }
             }
           }
@@ -95,6 +124,14 @@ query Resources {
 <style lang="postcss" scoped>
 .post-link {
   @apply text-gray-800 font-normal leading-normal;
+}
+main {
+  .post-link {
+    @apply text-gray-800 font-normal leading-normal;
+  }
+  .source a:not(.btn) {
+    @apply text-gray-800 font-normal leading-normal;
+  }
 }
 </style>
 <script>

@@ -26,24 +26,16 @@
         >
           <li class="text-center px-6 mb-10 lg:mb-0">
             <g-link to="/" class="text-copy-primary hover:text-red-800"
-              >Support Black Communities</g-link
+              >All Resources</g-link
             >
           </li>
+
           <li class="text-center px-6 mb-10 lg:mb-0">
-            <g-link to="/covid-19" class="text-copy-primary hover:text-red-800"
-              >COVID-19 Relief</g-link
+            <g-link to="/jobs" class="text-copy-primary hover:text-red-800"
+              >Jobs &amp; Paid Opportunities</g-link
             >
           </li>
-          <li class="text-center px-6 mb-10 lg:mb-0">
-            <g-link to="/gigs" class="text-copy-primary hover:text-red-800"
-              >Gigs</g-link
-            >
-          </li>
-          <li class="text-center px-6 mb-10 lg:mb-0 ">
-            <g-link to="/tools" class="text-copy-primary hover:text-red-800"
-              >Tools</g-link
-            >
-          </li>
+
           <li class="text-center px-6 mb-10 lg:mb-0 ">
             <g-link
               to="/reading-lists"

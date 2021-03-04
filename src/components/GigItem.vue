@@ -2,17 +2,17 @@
   <div class="gig-item">
     <div :id="gig.id">
       <h2 class="text-2xl">
-        <div class="title" v-if="gig.node.Closed">
-          {{ gig.node.Title }}
+        <div class="title" v-if="gig.node.closed">
+          {{ gig.node.title }}
         </div>
         <div v-else>
-          <div v-if="gig.node.URL">
-            <a :href="gig.node.URL" target="_blank">{{ gig.node.Title }}</a>
+          <div v-if="gig.node.url">
+            <a :href="gig.node.url" target="_blank">{{ gig.node.title }}</a>
           </div>
 
-          <div v-else-if="gig.node.PDF" class="flex">
-            {{ gig.node.Title }}
-            <a :href="gig.node.PDF[0].url"
+          <div v-else-if="gig.node.pdf[0]" class="flex">
+            {{ gig.node.title }}
+            <a :href="gig.node.pdf[0].url"
               ><span class="text-base ml-2 mr-0">PDF</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -37,9 +37,9 @@
       </h2>
 
       <p class="font-bold company">
-        {{ gig.node.Company }}
+        {{ gig.node.company }}
       </p>
-      <div v-if="!gig.node.Closed">
+      <div v-if="!gig.node.closed">
         <div class="info-block">
           <p class=" mb-0">
             <span class="uppercase text-sm tracking-wide text-gray-600">
@@ -47,29 +47,29 @@
             >
             {{ gig.node.posted | luxon("LLL d, yyyy") }}
           </p>
-          <p class=" mb-0" v-if="gig.node.Closing_Date">
+          <p class=" mb-0" v-if="gig.node.closingDate">
             <span class="uppercase text-sm tracking-wide text-gray-600">
               Close date</span
             >
-            {{ gig.node.Closing_Date | luxon("LLL d, yyyy") }}
+            {{ gig.node.closingDate | luxon("LLL d, yyyy") }}
           </p>
           <p class=" mb-0">
             <span class="uppercase text-sm tracking-wide text-gray-600">
               Compensation
             </span>
-            {{ gig.node.Compensation }}
+            {{ gig.node.compensation }}
           </p>
 
-          <p v-if="gig.node.Location">
+          <p v-if="gig.node.location">
             <span class="uppercase text-sm tracking-wide text-gray-600">
               Location
             </span>
-            {{ gig.node.Location }}
+            {{ gig.node.location }}
           </p>
         </div>
 
         <div
-          v-html="marked(gig.node.Summary)"
+          v-html="marked(gig.node.summary)"
           class="summary markdown-body pb-4"
         />
       </div>
@@ -126,7 +126,7 @@
 }
 </style>
 <script>
-import AccordionItem from "@/components/GigItem";
+// import AccordionItem from "@/components/GigItem";
 export default {
   props: ["gig"],
 };

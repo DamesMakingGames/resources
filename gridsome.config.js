@@ -25,9 +25,49 @@ module.exports = {
         path: "./content/reading-list/*.md",
       },
     },
+    {
+      use: "@gridsome/source-airtable",
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY,
+        base: process.env.AIRTABLE_BASE_ID,
+        tableName: "Resources", // required
+
+        tables: [
+          {
+            name: "Resources",
+            typeName: "Resource",
+            select: {
+              view: "viw1OAwyVvoltzX4t",
+            },
+            links: [
+              {
+                fieldName: "Type",
+                typeName: "Type",
+              },
+              {
+                fieldName: "Category",
+                typeName: "Category",
+              },
+            ],
+          },
+          {
+            name: "Types",
+            typeName: "Type",
+          },
+          {
+            name: "Categories",
+            typeName: "Category",
+          },
+          {
+            name: "Jobs",
+            typeName: "Gig",
+          },
+        ],
+      },
+    },
   ],
   templates: {
-    ReadingList: "/reading-list/:slug",
+    // ReadingList: "/reading-list/:slug",
   },
 
   transformers: {

@@ -40,41 +40,41 @@ query {
     siteName
     siteUrl
   }
-  openGigs: allGig(sortBy: "posted", order: DESC,filter: {Closed: {ne: true}}) {
+  openGigs: allGig(sortBy: "posted", order: DESC,filter: {closed: {ne: true}}) {
     
     edges {
       node {
-        Title
-        URL
-        PDF {
+        title
+        url
+        pdf {
           url
         }
         posted
-        Company
-        Location
-        Closing_Date
-        Closed
-        Compensation
-        Summary
+        company
+        location
+        closingDate
+        closed
+        compensation
+        summary
       }
     }
   }
-  closedGigs: allGig(sortBy: "posted", order: DESC,filter: {Closed: {eq: true}}) {
+  closedGigs: allGig(sortBy: "posted", order: DESC,filter: {closed: {eq: true}}) {
 
     edges {
       node {
-         Title
-        URL
-        PDF {
+        title
+        url
+        pdf {
           url
         }
         posted
-        Company
-        Location
-        Closing_Date
-        Closed
-        Compensation
-        Summary
+        company
+        location
+        closingDate
+        closed
+        compensation
+        summary
         
       }
     }

@@ -20,6 +20,7 @@ export default function(Vue, { router, head, isClient }) {
     duration: 500,
     easing: "ease",
   });
+  var slugify = require("slugify");
 
   var marked = require("marked");
   marked.setOptions({
@@ -30,6 +31,9 @@ export default function(Vue, { router, head, isClient }) {
     methods: {
       marked: function(input) {
         return marked(input);
+      },
+      slug: function slug(input) {
+        return slugify(input, { lower: true });
       },
     },
   });
