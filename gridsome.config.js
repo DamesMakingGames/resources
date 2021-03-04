@@ -67,7 +67,7 @@ module.exports = {
     },
   ],
   templates: {
-    // ReadingList: "/reading-list/:slug",
+    ReadingList: "/reading-list/:slug",
   },
 
   transformers: {
