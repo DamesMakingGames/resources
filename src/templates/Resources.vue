@@ -80,20 +80,17 @@
                 /> -->
               </div>
 
-              <div class="flex jus justify-between  mb-3">
-                <div class="mb-0 source">
-                  <span
-                    class="uppercase text-sm tracking-wide text-gray-600"
-                    v-if="tool.node.source"
-                  >
-                    Source
-                  </span>
-                  <span
-                    v-if="tool.node.source"
-                    v-html="marked(tool.node.source)"
-                    class="markdown-body mb-2 pb-4 text-black"
-                  />
-                </div>
+              <div class="mb-0 source flex">
+                <span
+                  class="uppercase mr-2 tracking-wide text-gray-600"
+                  v-if="tool.node.source"
+                >
+                  Source
+                </span>
+                <span
+                  v-if="tool.node.source"
+                  v-html="marked(tool.node.source)"
+                />
               </div>
 
               <div
@@ -138,6 +135,7 @@ query Resources {
                         topic
                         url
                         notes
+                        source
                       }
                     }
                   }
@@ -163,6 +161,12 @@ main {
   }
   .source a:not(.btn) {
     @apply text-gray-800 font-normal leading-normal;
+  }
+  .source {
+    p {
+      @apply m-0;
+      margin-bottom: 0 !important;
+    }
   }
 }
 </style>
