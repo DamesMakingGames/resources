@@ -5,25 +5,28 @@
         <h1 class="text-4xl font-bold leading-tight">
           Resources
         </h1>
-        <div class="intro">
+        <!-- <div class="intro">
           <span class="lg:m-0 lg:p-0 align-middle my-6 flex">
             <a class="btn btn-red leading-normal align-middle" href=""
               >+ Submit something</a
             >
           </span>
-        </div>
+        </div> -->
       </div>
       <p class="text-gray-600 my-6">
         Last updated: {{ $context.today | luxon("LLL d, yyyy") }}
       </p>
 
-      <div class="py-6 my-12 border-b border-t">
+      <!-- <pre>{{ JSON.stringify($page.allCategory.edges, null, 2) }}</pre> -->
+      <div class="py-6 my-12 ">
         <ul
-          v-for="category in $page.allCategories.edges"
+          v-for="category in $page.allCategory.edges"
           :key="category.id"
-          class="flex flex-wrap border-gray-400"
+          class="flex flex-wrap "
         >
           <li class="inline-flex text-base font-bold mb-0">
+            <div v-if="category.__typename == 'Type'">it's a type!</div>
+
             <a :href="`#${slug(category.node.name)}`">{{
               category.node.name
             }}</a>
@@ -31,9 +34,9 @@
         </ul>
       </div>
       <div
-        v-for="category in $page.allCategories.edges"
+        v-for="category in $page.allCategory.edges"
         :key="category.id"
-        class="post border-gray-400 border-b pb-6 mb-6"
+        class="post pb-6 mb-6"
       >
         <h2
           class="text-xl md:text-2xl font-bold mb-0"
@@ -41,45 +44,64 @@
         >
           {{ category.node.name }}
         </h2>
-        <div class="grid grid-cols-1 divide-y divide-gray-500">
+
+        <div class="grid grid-cols-1 divide-y divide-gray-300 pb-4">
           <div
-            v-for="tool in category.node.belongsTo.edges"
-            :key="tool.id"
-            class="my-2"
+            v-for="type in category.node.belongsTo.edges"
+            :key="type.id"
+            class="my-2 pt-4"
           >
-            <div class="flex justify-between  pt-2">
-              <h3 class="text-lg">
-                <a :href="tool.node.url" target="_blank">
-                  {{ tool.node.title }}
-                </a>
-              </h3>
-              <span
-                v-html="tool.node.type[0].name"
-                class="bg-gray-300 text-gray-600 rounded-sm px-2 py-1 text-sm"
+            <h4 class="font-bold uppercase">{{ type.node.name }}</h4>
+            <!-- <pre>{{ JSON.stringify(type.node.belongsTo.edges, null, 2) }}</pre> -->
+            <div
+              v-for="tool in type.node.belongsTo.edges"
+              :key="tool.id"
+              class="my-2"
+            >
+              <div class="flex justify-between  pt-2">
+                <h3 class="text-lg">
+                  <a :href="tool.node.url" target="_blank">
+                    {{ tool.node.title }}
+                  </a>
+                </h3>
+                <div class="tags flex justify-between  ">
+                  <div
+                    v-for="topic in tool.node.topic"
+                    :key="topic.id"
+                    class="text-gray-600 text-sm px-2"
+                  >
+                    {{ topic }}
+                  </div>
+                </div>
+
+                <!-- <span
+                  v-html="tool.node.type[0].name"
+                  class="bg-gray-300 text-gray-600 rounded-sm px-2 py-1 text-sm"
+                /> -->
+              </div>
+
+              <div class="flex jus justify-between  mb-3">
+                <div class="mb-0 source">
+                  <span
+                    class="uppercase text-sm tracking-wide text-gray-600"
+                    v-if="tool.node.source"
+                  >
+                    Source
+                  </span>
+                  <span
+                    v-if="tool.node.source"
+                    v-html="marked(tool.node.source)"
+                    class="markdown-body mb-2 pb-4 text-black"
+                  />
+                </div>
+              </div>
+
+              <div
+                v-if="tool.node.notes"
+                v-html="marked(tool.node.notes)"
+                class="markdown-body mb-2 pb-4"
               />
             </div>
-
-            <div class="flex jus justify-between  mb-3">
-              <div class="mb-0 source">
-                <span
-                  class="uppercase text-sm tracking-wide text-gray-600"
-                  v-if="tool.node.source"
-                >
-                  Source
-                </span>
-                <span
-                  v-if="tool.node.source"
-                  v-html="marked(tool.node.source)"
-                  class="markdown-body mb-2 pb-4 text-black"
-                />
-              </div>
-            </div>
-
-            <div
-              v-if="tool.node.notes"
-              v-html="marked(tool.node.notes)"
-              class="markdown-body mb-2 pb-4"
-            />
           </div>
         </div>
       </div>
@@ -93,23 +115,33 @@ query Resources {
     siteName
     siteUrl
   }
-  allCategories: allCategory {
+
+  allCategory {
     edges {
       node {
         name
-        belongsTo(sortBy: "name", order: ASC) {
+
+        belongsTo(filter: {typeName: {eq: Type}}) {
           edges {
             node {
-              ... on Resource {
-                title
-                url
-                notes
-                source
-                type {
-                  id
-                  name
+              __typename
+              ... on Type {
+                name
+                belongsTo {
+                  edges {
+                    node {
+                      ... on Resource {
+                        title
+                        type {
+                          name
+                        }
+                        topic
+                        url
+                        notes
+                      }
+                    }
+                  }
                 }
-                topic
               }
             }
           }

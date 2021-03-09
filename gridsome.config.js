@@ -53,10 +53,22 @@ module.exports = {
           {
             name: "Types",
             typeName: "Type",
+            links: [
+              {
+                fieldName: "Category",
+                typeName: "Category",
+              },
+            ],
           },
           {
             name: "Categories",
             typeName: "Category",
+            links: [
+              {
+                fieldName: "Type",
+                typeName: "Type",
+              },
+            ],
           },
           {
             name: "Jobs",
