@@ -14,7 +14,7 @@
           <span class="lg:m-0 lg:p-0 align-middle my-6 flex">
             <a
               class="btn btn-red leading-normal align-middle"
-              href="https://airtable.com/shr90IMQUKUkkQxOO"
+              href="https://airtable.com/shrzKNiaNaUWpsVsp"
               >+ Submit</a
             >
           </span>

@@ -20,3 +20,13 @@ A Distributed Cooperative Organizations (DisCO) is an organisational model for c
 - [The Role of Cooperatives in Achieving the Sustainable Development Goals - the Economic Dimension](https://www.un.org/esa/socdev/documents/2014/coopsegm/Schwettmann.pdf) (PDF)
 - [Free, Fair and Alive: The Insurgent Power of the Commons](https://www.freefairandalive.org/read-it/)
 - [Coronavirus Tech Handbook](https://coronavirustechhandbook.com/remote-education)
+
+### Related reading:
+
+[Big Enough](https://leelefever.com/bigenough/) by Lee LeFever
+_Big Enough is about a saner, healthier approach to building business. Learn how to design a business that supports values that matter to you._
+
+- [Everything for Everyone: The Radical Tradition that Is Shaping the Next Economy](https://nathanschneider.info/books/everything-for-everyone/) by Nathan Schneider
+  _Since the financial crash of 2008, the cooperative movement has been coming back with renewed vigor. Everything for Everyone chronicles this economic and social revolution—from taxi cooperatives that are keeping Uber and Lyft at bay, to an outspoken mayor transforming his city in the Deep South, to a fugitive building a fairer version of Bitcoin, to the rural electric co-op members who are propelling an aging system into the future. As these pioneers show, cooperative enterprise is poised to help us reclaim faith in our capacity for creative, powerful democracy._
+
+- [Patterns for Decentralized Organizing](https://leanpub.com/patterns-for-decentralised-organising/) by Richard D. Bartlett
