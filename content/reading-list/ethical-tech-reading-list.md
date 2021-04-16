@@ -7,7 +7,6 @@ slug: ethical-tech-reading-list
 
 **Read & watch:**
 
-- [Critical Race & Digital Studies Syllabus](https://criticalracedigitalstudies.com/syllabus/)
 - _Algorithms of Oppression_ by [Dr. Safiya Umoja Noble](https://twitter.com/safiyanoble), plus video lectures: At [USC (2017)](https://www.youtube.com/watch?v=oqelqdDIDSs) and [re:publica (2018)](https://www.youtube.com/watch?v=Q7yFysTBpAo) and [Pocket curation](https://blog.getpocket.com/2020/06/the-bias-embedded-in-algorithms/)
 - _An Artificial Revolution_ by [Ivana Bartoletti](https://twitter.com/IvanaBartoletti)
 - _Antisocial Media: How Facebook Disconnects us and Undermines Democracy_ by [Siva Vaidhyanathan](https://twitter.com/sivavaid)
@@ -15,13 +14,19 @@ slug: ethical-tech-reading-list
 - _Behind the Screen_ by [Sarah T. Roberts](https://twitter.com/ubiquity75)
 - _Black Software_ by [Charlton McIlwain](https://twitter.com/cmcilwain)
 - _Coded Bias_, documentary film by [Shalini Kantayya](https://twitter.com/shalinikantayya)
-- [Gender Shades](http://gendershades.org/), Joy Buolamwini and Timnit Gebru
 - _Programmed Inequality_ by [Mar Hicks](https://twitter.com/histoftech)
 - _Race After Technology_ by [Ruha Benjamin](https://twitter.com/ruha9)
 - _Your Computer is on Fire_ (out early 2021)
 - [_How I’m Fighting Bias in Algorithms_](https://www.ted.com/talks/joy_buolamwini_how_i_m_fighting_bias_in_algorithms), TED Talk by [Joy Buolamwini](https://twitter.com/jovialjoy)
-- [“To Really 'Disrupt,' Tech Needs to Listen to Actual Researchers”](https://www.wired.com/story/tech-needs-to-listen-to-actual-researchers/) by [Lilly Irani](https://twitter.com/gleemie) and [Rumman Chowdhury](https://twitter.com/ruchowdh)
 - ["Consent, data-driven inequities, and the risks of sharing administrative data"](https://poweredbydata.org/blog/2018/6/25/risks-of-sharing-administrative-data) by Lorraine Chuen
+- ["Everyday Ethics for Artificial Intelligence"](https://www.ibm.com/watson/assets/duo/pdf/everydayethics.pdf) published by IBM
+- ["Unmasking a Concern: Amazon Is Publishing a Facial Recognition Technology That a Study Says Could Be Biased"](https://www.nytimes.com/2019/01/24/technology/amazon-facial-technology-study.html) (New York Times, Jan. 2019)
+- [“To Really 'Disrupt,' Tech Needs to Listen to Actual Researchers”](https://www.wired.com/story/tech-needs-to-listen-to-actual-researchers/) by [Lilly Irani](https://twitter.com/gleemie) and [Rumman Chowdhury](https://twitter.com/ruchowdh)
+- [Artificial Unintelligence](https://mitpress.mit.edu/books/artificial-unintelligence) by Meredith Broussard
+- [Critical Race & Digital Studies Syllabus](https://criticalracedigitalstudies.com/syllabus/)
+- [Gender Shades](http://gendershades.org/), Joy Buolamwini and Timnit Gebru
+- [Twitter and Tear Gas](https://www.twitterandteargas.org/) by Dr. Zeynep Tufekci
+- [Weapons of Math Destruction](https://weaponsofmathdestructionbook.com/) by Dr. Cathy O'Neil
 
 **Organizations, tools and initiatives:**
 
@@ -35,6 +40,9 @@ slug: ethical-tech-reading-list
 - [IntersectTO](https://intersectto.gitbook.io/community/) - a Toronto-based community group for people who identify as Black, Indigenous, and people of colour (BIPOC), who are interested in technology.
 - [Platform Abuse](https://www.platformabuse.org/) - A new resource that helps educate people involved in building online communities about potentially harmful features.
 - [The People's Guide to AI](https://alliedmedia.org/resources/peoples-guide-to-ai) - This guide breaks down and contextualizes artificial intelligence technologies within structural racism — and provides hands-on exercises to help us imagine beyond, and dream up alternate and ideal futures with AI.
+- [Algorithmic Justice League](https://www.ajl.org/)
+- [Center on Privacy and Technology](https://www.law.georgetown.edu/privacy-technology-center/), Georgetown Law
+- [Big Brother Watch UK](https://bigbrotherwatch.org.uk/)
 
 **Folks to follow on Twitter:**
 
